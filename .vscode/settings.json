@@ -1,0 +1,14 @@
+{
+    "files.autoSave": "afterDelay",
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "go.goroot": "~/sdk/go1.22.5/",
+    "explorer.confirmDelete": false,
+    // go言語でdocstringがなくてもいちいち警告ださない
+    "pylint.args": [
+        "\"pylint.args\": [\"--disable=C0111\"]"
+    ],
+    // Ctrl+sでリフォーマットする
+    "editor.formatOnSave": true,
+    // ジュピターでモジュールを呼び出す際にルートディレクトリからの参照を行える
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
+}
