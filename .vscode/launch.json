@@ -5,7 +5,7 @@
             "name": "Listen for Xdebug",
             "type": "php",
             "request": "launch",
-            "port": 1234,
+            "port": 2001,
             "pathMappings": {
                 "/var/www/html/": "${workspaceFolder}"
             },

@@ -11,4 +11,6 @@
     "editor.formatOnSave": true,
     // ジュピターでモジュールを呼び出す際にルートディレクトリからの参照を行える
     "jupyter.notebookFileRoot": "${workspaceFolder}",
+    "notebook.formatOnSave.enabled": true,
+    "notebook.formatOnCellExecution": true,
 }

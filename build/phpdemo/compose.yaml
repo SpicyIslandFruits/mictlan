@@ -10,7 +10,7 @@ services:
       MYSQL_PASSWORD: demo_database_password
     ports:
       - "3306:3306"
-  volumes:
+    volumes:
     - ./init.sql:/docker-entrypoint-initdb.d/init.sql
   app:
     build:
@@ -19,16 +19,16 @@ services:
     volumes:
       - ../../web:/var/www/html/web
     ports:
-      - "9000:9000"
+      - "2000:2000"
     extra_hosts:
       - "host.docker.internal:host-gateway" # linuxでhostのxdebugに接続する時必要
     command: >
       sh -c "
         echo 'xdebug.mode=debug,develop' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini &&
         echo 'xdebug.client_host=host.docker.internal' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini &&
-        echo 'xdebug.client_port=1234' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini &&
+        echo 'xdebug.client_port=2001' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini &&
         echo 'xdebug.start_with_request=yes' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini &&
         echo 'xdebug.log=/var/log/xdebug.log' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini &&
         echo 'xdebug.log_level=7' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini &&
-        php -S 0.0.0.0:9000 -t /var/www/html/
+        php -S 0.0.0.0:2000 -t /var/www/html/
       "
