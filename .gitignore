@@ -4,3 +4,4 @@
 /out/
 /.lake/
 .env
+zrok.log
