@@ -20,6 +20,7 @@ services:
     volumes:
       - ../../web:/var/www/html/web
     working_dir: /var/www/html
+    # FIXME: chownが必要かどうかわからん
     command: >
       sh -c "
         # composer install --no-dev --optimize-autoloader &&
