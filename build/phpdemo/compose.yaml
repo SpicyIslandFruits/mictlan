@@ -22,7 +22,7 @@ services:
       - "2000:2000"
     extra_hosts:
       - "host.docker.internal:host-gateway" # linuxでhostのxdebugに接続する時必要
-    command: >
+    command: > # xdebugサーバーへの接続のタイムアウトあったほうがいい
       sh -c "
         echo 'xdebug.mode=debug,develop' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini &&
         echo 'xdebug.client_host=host.docker.internal' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini &&
