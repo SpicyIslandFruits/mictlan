@@ -41,7 +41,6 @@
 <body>
     <div class="container">
         <h1>半額寿司ハンターのWebsite</h1>
-        <p>You can email me at <a href="mailto:spicyisland1998@gmail.com">spicyisland1998@gmail.com</a>.</p>
         <p>Links: </p>
         <p>• Here's my <a href="https://github.com/SpicyIslandFruits">GitHub</a>.</p>
         <p>• Here's my <a href="./demo.php">blog</a>.</p>

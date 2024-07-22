@@ -1,9 +1,10 @@
-/venv/
-/.venv/
-/playground/
-/out/
-/.lake/
-/node_modules/
+venv/
+.venv/
+playground/
+out/
+.lake/
+node_modules/
 .env
 zrok.log
 nohup.out
+/.lake

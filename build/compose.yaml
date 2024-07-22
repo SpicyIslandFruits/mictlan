@@ -33,7 +33,7 @@ services:
     ports:
       - "3000:80"
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - "host.docker.internal:host-gateway" # FIXME: bunをコンテナで動かしてないためhostに接続できるようにしているのを後で治す
     volumes:
       - ../nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
