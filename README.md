@@ -4,28 +4,30 @@
 
 # Idea
 
-* ソースコードグラフ
-* 逆設計DNNモデル
-* なんでもグラフデータ化
-* pkgとinternalは同じレイヤとみなせるかなぁ
+- ソースコードグラフ
+- 逆設計 DNN モデル
+- なんでもグラフデータ化
+- pkg と internal は同じレイヤとみなせるかなぁ
 
 # Reference
 
-* [NNの仕組み](https://www.3blue1brown.com/topics/neural-networks)
-* [サンプルコード付き](http://neuralnetworksanddeeplearning.com/chap1.html)
-* [サンプルコードpython3](https://github.com/unexploredtest/neural-networks-and-deep-learning)
+- [NN の仕組み](https://www.3blue1brown.com/topics/neural-networks)
+- [サンプルコード付き](http://neuralnetworksanddeeplearning.com/chap1.html)
+- [サンプルコード python3](https://github.com/unexploredtest/neural-networks-and-deep-learning)
 
 # Note
 
-* 設計中は人に例えるとわかりやすい
+- 設計中は人に例えるとわかりやすい
 
 # TODO
 
-Networkの構造が不適切なので、テンソルを扱えるライブラリ等をDIして
-neuron単位等でのweightの置き換えができることをインターフェースとして定義する。
-多分processorと同じ感じになる
+Network の構造が不適切なので、テンソルを扱えるライブラリ等を DI して
+neuron 単位等での weight の置き換えができることをインターフェースとして定義する。
+多分 processor と同じ感じになる
 
-アインシュタインが問題を解くとき定義に95％の時間をさくと言っている
-その部分がinternalに置かれたinterfaceにあたると思う
+アインシュタインが問題を解くとき定義に 95％の時間をさくと言っている
+その部分が internal に置かれた interface にあたると思う
 
-lakeの設定でビルド関連の設定ファイルをbuildディレクトリにうつしてソースルート
+lake の設定でビルド関連の設定ファイルを build ディレクトリにうつしてソースルート
+
+https 対応させて nginx で http2 使用する
