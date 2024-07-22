@@ -11,15 +11,14 @@ services:
     ports:
       - "3306:3306"
     volumes:
-    - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    - ../mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
   
-  stg:
+  stg-phpdemo:
     build:
       context: .
-      dockerfile: stg.Dockerfile
+      dockerfile: ./phpdemo/stg.Dockerfile
     volumes:
-      - ../../web:/var/www/html/web
-    working_dir: /var/www/html
+      - ../web:/var/www/html/web
     # FIXME: chownが必要かどうかわからん
     command: >
       sh -c "
@@ -33,17 +32,19 @@ services:
     image: nginx:latest
     ports:
       - "3000:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ../nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
-      - stg
+      - stg-phpdemo
 
-  debug:
+  debug-phpdemo:
     build:
       context: .
-      dockerfile: debug.Dockerfile
+      dockerfile: ./phpdemo/debug.Dockerfile
     volumes:
-      - ../../web:/var/www/html/web
+      - ../web/phpdemo:/var/www/html/web/phpdemo
     ports:
       - "2000:2000"
     extra_hosts:
