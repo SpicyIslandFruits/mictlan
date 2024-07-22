@@ -2,12 +2,16 @@
 
 いちいちレポジトリ作るの面倒くさいんで、全部ひとつのプロジェクトにぶち込んでます。いろんなモジュールをごちゃまぜにした感じ。要するにごった煮プロジェクトってわけ。
 
+[サイト](https://cgnjh7w31gmu.share.zrok.io/phpdemo/index.php)
+
 # Idea
 
 - ソースコードグラフ
 - 逆設計 DNN モデル
 - なんでもグラフデータ化
 - pkg と internal は同じレイヤとみなせるかなぁ
+- ベルの不等式成り立たない方の証明書きたい
+- lean tutorial 全部やって書き残す
 
 # Reference
 
@@ -32,6 +36,6 @@ lake の設定でビルド関連の設定ファイルを build ディレクト�
 
 https 対応させて nginx で http2 使用する
 
-次なんか作るならbunでやる
+次なんか作るなら bun でやる
 
 [使ってみたい](https://github.com/statelyai/xstate)

@@ -1,8 +1,5 @@
-const server = Bun.serve({
-    port: 4000,
-    fetch(req) {
-      return new Response("Bun!");
-    },
-  });
-  
- console.log(`Listening on http://localhost:${server.port} ...`);
+import * as elysia from "../../elysia";
+
+elysia.launch(4001);
+
+console.log(`Listening on http://localhost:4001 ...`);

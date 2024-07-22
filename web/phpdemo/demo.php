@@ -1,3 +1,3 @@
 <?php
-$message = "ワードプレス建てる予定なんだよね";
+$message = "ワードプレス建てる予定";
 echo $message;
