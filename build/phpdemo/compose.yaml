@@ -12,10 +12,35 @@ services:
       - "3306:3306"
     volumes:
     - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-  app:
+  
+  stg:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: stg.Dockerfile
+    volumes:
+      - ../../web:/var/www/html/web
+    working_dir: /var/www/html
+    command: >
+      sh -c "
+        # composer install --no-dev --optimize-autoloader &&
+        # chown -R www-data:www-data /var/www/html &&
+        # composer clear-cache &&
+        php-fpm
+      "
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "3000:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - stg
+
+  debug:
+    build:
+      context: .
+      dockerfile: debug.Dockerfile
     volumes:
       - ../../web:/var/www/html/web
     ports:

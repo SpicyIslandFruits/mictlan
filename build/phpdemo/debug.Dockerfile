@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-ext-install pdo pdo_mysql zip
 
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Xdebugのインストール
+# Xdebugのインストールは最後にするほうが良い、phpが実行できなくてstuckするため
 RUN pecl install xdebug && docker-php-ext-enable xdebug
