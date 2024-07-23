@@ -16,4 +16,5 @@
     // wslでなぜかフルパス指定しないと動かない。もしかしたらbun.exeの方でやろうとするのかもしれない
     "bun.runtime": "/home/john/.bun/bin/bun",
     "bun.debugTerminal.stopOnEntry": true,
+    "python.defaultInterpreterPath": "~/.venv/bin/python"
 }
