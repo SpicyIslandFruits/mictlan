@@ -22,6 +22,8 @@
 # Note
 
 - 設計中は人に例えるとわかりやすい
+- アインシュタインが問題を解くとき定義に 95％の時間をさくと言っている
+  その部分が internal に置かれた interface にあたると思う
 
 # TODO
 
@@ -29,13 +31,18 @@ Network の構造が不適切なので、テンソルを扱えるライブラリ
 neuron 単位等での weight の置き換えができることをインターフェースとして定義する。
 多分 processor と同じ感じになる
 
-アインシュタインが問題を解くとき定義に 95％の時間をさくと言っている
-その部分が internal に置かれた interface にあたると思う
-
 lake の設定でビルド関連の設定ファイルを build ディレクトリにうつしてソースルート
 
 https 対応させて nginx で http2 使用する
 
 次なんか作るなら bun でやる
 
-[使ってみたい](https://github.com/statelyai/xstate)
+jupyter notebook をおいてそれをホストするエンドポイントを bun で作る
+
+どっかで使えそうな[js ライブラリ](https://github.com/statelyai/xstate)
+
+前バイトでやった [php の auth モジュール](https://github.com/SpicyIslandFruits/koemade) 持ってくる
+
+[redpanda university](https://university.redpanda.com/) をやってインフラに導入する
+
+graph rag と fine tuning と leanDojo
