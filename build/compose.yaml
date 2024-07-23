@@ -1,4 +1,4 @@
-name: phpdemo
+name: mictlan
 
 services:
   mysql:
@@ -34,15 +34,6 @@ services:
         php-fpm
       "
 
-  nginx:
-    image: nginx:latest
-    ports:
-      - "3000:80"
-    volumes:
-      - ../nginx/nginx.conf:/etc/nginx/nginx.conf
-    depends_on:
-      - stg-phpdemo
-
   debug-phpdemo:
     build:
       context: .
@@ -50,7 +41,7 @@ services:
     volumes:
       - ../web/phpdemo:/var/www/html/web/phpdemo
     ports:
-      - "2000:2000"
+      - "2000:2000" # debugはnginxでプロキシしていないからポートを公開
     extra_hosts:
       - "host.docker.internal:host-gateway" # linuxでhostのxdebugに接続する時必要
     command: > # xdebugサーバーへの接続のタイムアウトあったほうがいい
@@ -63,3 +54,23 @@ services:
         echo 'xdebug.log_level=7' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini &&
         php -S 0.0.0.0:2000 -t /var/www/html/
       "
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "3000:80"
+    volumes:
+      - ../nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - stg-phpdemo
+
+  zrok:
+    image: openziti/zrok
+    env_file:
+      - .env
+    user: "${UID}"
+    volumes:
+      - ${HOME}/.zrok:/.zrok
+    environment:
+      - PFXLOG_NO_JSON=true
+    command: share reserved "mictlan" --headless

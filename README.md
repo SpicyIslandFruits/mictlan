@@ -2,7 +2,7 @@
 
 いちいちレポジトリ作るの面倒くさいんで、全部ひとつのプロジェクトにぶち込んでます。いろんなモジュールをごちゃまぜにした感じ。要するにごった煮プロジェクトってわけ。
 
-[サイト](https://b7ra0lmmjhmi.share.zrok.io/phpdemo/index.php)
+[サイト](https://mictlan.share.zrok.io/phpdemo/index.php)
 
 # Idea
 
@@ -46,3 +46,5 @@ graph rag と fine tuning と leanDojo
 vpnサーバーとファイルサーバーとメールサーバーも立てたい
 
 前作ったphpの認証を移植すれば機械学習系を外部から操作するエンドポイント作れる
+
+zrokもdockerにしたほうがいい、ホストマシンに誤ってトンネルしなくなる
