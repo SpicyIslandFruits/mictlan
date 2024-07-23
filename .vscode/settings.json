@@ -13,4 +13,7 @@
     "jupyter.notebookFileRoot": "${workspaceFolder}",
     "notebook.formatOnSave.enabled": true,
     "notebook.formatOnCellExecution": true,
+    // wslでなぜかフルパス指定しないと動かない。もしかしたらbun.exeの方でやろうとするのかもしれない
+    "bun.runtime": "/home/john/.bun/bin/bun",
+    "bun.debugTerminal.stopOnEntry": true,
 }

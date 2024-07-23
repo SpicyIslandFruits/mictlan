@@ -2,6 +2,9 @@
   "name": "mictlan",
   "type": "module",
   "module": "cmd/bundemo/index.ts",
+  "scripts": {
+    "dev": "bun --watch cmd/bundemo/index.ts"
+  },
   "dependencies": {
     "elysia": "latest"
   },

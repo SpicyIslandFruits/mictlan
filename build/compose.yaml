@@ -11,8 +11,14 @@ services:
     ports:
       - "3306:3306"
     volumes:
-    - ../mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
-  
+      - ../mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  stg-bundemo:
+    image: oven/bun:latest
+    volumes:
+      - ../out/bundemo/app:/app
+    command: /app --port 4000
+
   stg-phpdemo:
     build:
       context: .
@@ -32,8 +38,6 @@ services:
     image: nginx:latest
     ports:
       - "3000:80"
-    extra_hosts:
-      - "host.docker.internal:host-gateway" # FIXME: bunをコンテナで動かしてないためhostに接続できるようにしているのを後で治す
     volumes:
       - ../nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
