@@ -7,5 +7,7 @@ package «leandemo» where
 lean_lib «internal» where
   -- add library configuration options here
 
+require mathlib from git "https://github.com/leanprover-community/mathlib4"
+
 lean_exe «leandemo» where
   root := `cmd.«Leandemo».Main
