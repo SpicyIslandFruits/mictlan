@@ -16,7 +16,7 @@ services:
   stg-bundemo:
     image: oven/bun:latest
     volumes:
-      - ../out/bundemo/app:/app
+      - ../out/bundemo/app:/app # 関連ディレクトリ全部マウントしてからビルドするか迷う、Dockerfileだと親フォルダ参照できない、それかcontextを設定してビルド可能にする
     command: /app --port 4000
 
   stg-phpdemo:
