@@ -1,1 +1,0 @@
-cd ../../ && lake build leandemo

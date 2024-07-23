@@ -31,11 +31,7 @@ Network の構造が不適切なので、テンソルを扱えるライブラリ
 neuron 単位等での weight の置き換えができることをインターフェースとして定義する。
 多分 processor と同じ感じになる
 
-lake の設定でビルド関連の設定ファイルを build ディレクトリにうつしてソースルート
-
 https 対応させて nginx で http2 使用する
-
-次なんか作るなら bun でやる
 
 jupyter notebook をおいてそれをホストするエンドポイントを bun で作る
 
@@ -46,3 +42,7 @@ jupyter notebook をおいてそれをホストするエンドポイントを bu
 [redpanda university](https://university.redpanda.com/) をやってインフラに導入する
 
 graph rag と fine tuning と leanDojo
+
+vpnサーバーとファイルサーバーとメールサーバーも立てたい
+
+前作ったphpの認証を移植すれば機械学習系を外部から操作するエンドポイント作れる
