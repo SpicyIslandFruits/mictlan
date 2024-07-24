@@ -22,6 +22,6 @@ function getPortFromArgs(): number {
 const port = getPortFromArgs();
 
 // Elysiaを起動
-elysia.launchNotebook(port);
+elysia.launchNbviewer(port);
 
 console.log(`Listening on http://localhost:${port} ...`);

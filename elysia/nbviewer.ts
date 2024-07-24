@@ -4,7 +4,7 @@ import * as jupyter from "../jupyter";
 import * as localfile from "../localfile";
 import { make } from "../pkg/types";
 
-export function launchNotebook(port: number) {
+export function launchNbviewer(port: number) {
   const app = new nbviewer.App(
     new localfile.Library(),
     new jupyter.Presenter()
