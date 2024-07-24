@@ -19,6 +19,7 @@ services:
       dockerfile: build/nbviewer/Dockerfile
     volumes:
       - ../web/notebook:/app/web/notebook
+      - ../marmaid:/app/marmaid
     command: /app/nbviewer --port 4000
 
   stg-phpdemo:

@@ -44,7 +44,7 @@
         <p>Links: </p>
         <p>• Here's my <a href="https://github.com/SpicyIslandFruits">GitHub</a>.</p>
         <p>• Here's my <a href="./demo.php">blog</a>.</p>
-        <p>• Here's my <a href="../nbviewer/demo">bun website</a>.</p>
+        <p>• Here's my <a href="../nbviewer/clean-architecture">bun website</a>.</p>
     </div>
 </body>
 

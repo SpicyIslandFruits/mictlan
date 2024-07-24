@@ -11,3 +11,4 @@ playground/
 
 zrok.log
 nohup.out
+__pycache__/
