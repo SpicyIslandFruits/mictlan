@@ -76,4 +76,4 @@ services:
       - ${HOME}/.zrok:/.zrok
     environment:
       - PFXLOG_NO_JSON=true
-    command: share reserved "mictlan" --headless
+    command: share reserved "${ZROK_SHARE_NAME}" --headless
