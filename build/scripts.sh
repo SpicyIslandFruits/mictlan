@@ -3,6 +3,15 @@
 # 現在の作業ディレクトリを保存
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
+# .envファイルから環境変数を読み込む関数
+load_env() {
+    if [ -f "$SCRIPT_DIR/.env" ]; then
+        export $(grep -v '^#' "$SCRIPT_DIR/.env" | xargs)
+    else
+        echo "警告: .envファイルが見つかりません。"
+    fi
+}
+
 install_apt_packages() {
     echo "APTパッケージのインストールを開始します..."
     sudo apt install -y unzip wget
@@ -58,6 +67,17 @@ install_go() {
     echo "Goのインストールが完了しました。"
 }
 
+reserve_share() {
+    load_env
+    if [ -z "$ZROK_SHARE_NAME" ]; then
+        echo "エラー: ZROK_SHARE_NAMEが設定されていません。.envファイルを確認してください。"
+        return 1
+    fi
+    echo "zrok reserveを実行します..."
+    zrok reserve public --unique-name "$ZROK_SHARE_NAME" http://nginx
+    echo "zrok reserveが完了しました。"
+}
+
 # メイン処理
 case "$1" in
     apt)
@@ -75,15 +95,19 @@ case "$1" in
     go)
         install_go
         ;;
+    zrok)
+        reserve_share
+        ;;
     all)
         install_apt_packages
         install_vscode_extensions
         install_pip_packages
         install_bun
         install_go
+        reserve_share
         ;;
     *)
-        echo "使用方法: $0 {apt|vscode|pip|bun|go|all}"
+        echo "使用方法: $0 {apt|vscode|pip|bun|go|zrok|all}"
         exit 1
         ;;
 esac
