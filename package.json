@@ -3,6 +3,7 @@
   "type": "module",
   "module": "cmd/nbviewer/main.ts",
   "scripts": {
+    "build": "bun build --compile --minify --sourcemap . --outfile out/nbviewer",
     "dev": "bun run cmd/nbviewer/main.ts",
     "test": "bun test"
   },

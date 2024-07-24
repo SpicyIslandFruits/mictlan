@@ -18,10 +18,12 @@ export function launchNotebook(port: number) {
       },
       {
         afterHandle({ response, set }) {
-          set.headers["content-type"] = "text/html; charset=utf8";
+          set.headers["content-type"] = "text/html;charset=utf8";
         },
       }
     )
-    .get("*", () => "404 not found")
+    .get("*", () => {
+      return "404 not found"
+    })
     .listen(port);
 }

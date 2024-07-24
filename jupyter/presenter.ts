@@ -9,7 +9,7 @@ export class Presenter implements nbviewer.Presenter<Promise<HTML>> {
     try {
       const respose = new Response(notebook);
       const output =
-        await Bun.$`jupyter nbconvert --to html --stdin --stdout < ${respose}`.text();
+        await Bun.$`jupyter nbconvert --to html --execute --stdin --stdout < ${respose}`.text();
       const html = make<HTML>();
       return html(output);
     } catch (error) {

@@ -1,0 +1,13 @@
+venv/
+.venv/
+.lake/
+node_modules/
+
+.docker/
+
+out/
+playground/
+.env
+
+zrok.log
+nohup.out
