@@ -11,12 +11,15 @@
             }
         },
         {
+            "name": "Debug nbviewer",
             "type": "bun",
             "request": "launch",
-            "name": "Debug nbviewer",
             "program": "${workspaceFolder}/cmd/nbviewer/main.ts",
             "cwd": "${workspaceFolder}",
-            "watchMode": true
+            "watchMode": true,
+            "env": {
+                "PATH": "${env:PATH}:/home/john/.venv/bin"
+            }
         }
     ]
 }
