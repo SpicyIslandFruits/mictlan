@@ -13,16 +13,19 @@ services:
     volumes:
       - ../mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
 
-  stg-bundemo:
-    image: oven/bun:latest
+  stg-nbviewer:
+    build:
+      context: ../
+      dockerfile: build/nbviewer/Dockerfile
     volumes:
-      - ../out/bundemo/app:/app # 関連ディレクトリ全部マウントしてからビルドするか迷う、Dockerfileだと親フォルダ参照できない、それかcontextを設定してビルド可能にする
+      - ../out/nbviewer/app:/app # 関連ディレクトリ全部マウントしてからビルドするか迷う、Dockerfileだと親フォルダ参照できない、それかcontextを設定してビルド可能にする
+      - ../web:/web
     command: /app --port 4000
 
   stg-phpdemo:
     build:
-      context: .
-      dockerfile: ./phpdemo/stg.Dockerfile
+      context: ../
+      dockerfile: build/phpdemo/stg.Dockerfile
     volumes:
       - ../web:/var/www/html/web
     # FIXME: chownが必要かどうかわからん
@@ -36,8 +39,8 @@ services:
 
   debug-phpdemo:
     build:
-      context: .
-      dockerfile: ./phpdemo/debug.Dockerfile
+      context: ../
+      dockerfile: build/phpdemo/debug.Dockerfile
     volumes:
       - ../web/phpdemo:/var/www/html/web/phpdemo
     ports:

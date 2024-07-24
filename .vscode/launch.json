@@ -13,8 +13,8 @@
         {
             "type": "bun",
             "request": "launch",
-            "name": "Debug bundemo",
-            "program": "${workspaceFolder}/cmd/bundemo/index.ts",
+            "name": "Debug nbviewer",
+            "program": "${workspaceFolder}/cmd/nbviewer/main.ts",
             "cwd": "${workspaceFolder}",
             "watchMode": true
         }

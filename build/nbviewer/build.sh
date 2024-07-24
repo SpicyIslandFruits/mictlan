@@ -7,8 +7,8 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 PROJECT_ROOT="$SCRIPT_DIR/../.."
 
 # ソースファイルと出力ファイルのパス
-SOURCE_FILE="$PROJECT_ROOT/cmd/bundemo/index.ts"
-OUTPUT_FILE="$PROJECT_ROOT/out/bundemo/app"
+SOURCE_FILE="$PROJECT_ROOT/cmd/nbviewer/main.ts"
+OUTPUT_FILE="$PROJECT_ROOT/out/nbviewer/app"
 
 # ビルドコマンドを実行
 bun build --compile --minify --sourcemap "$SOURCE_FILE" --outfile "$OUTPUT_FILE"

@@ -1,7 +1,11 @@
 {
   "name": "mictlan",
   "type": "module",
-  "module": "cmd/bundemo/index.ts",
+  "module": "cmd/nbviewer/main.ts",
+  "scripts": {
+    "dev": "bun run cmd/nbviewer/main.ts",
+    "test": "bun test"
+  },
   "dependencies": {
     "elysia": "latest"
   },
