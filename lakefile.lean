@@ -1,7 +1,7 @@
 import Lake
 open Lake DSL
 
-package «leandemo» where
+package «mictlan» where
   -- add package configuration options here
 
 lean_lib «internal» where
@@ -9,5 +9,5 @@ lean_lib «internal» where
 
 require mathlib from git "https://github.com/leanprover-community/mathlib4"
 
-lean_exe «leandemo» where
-  root := `cmd.«Leandemo».Main
+lean_exe «dependenttypetheory» where
+  root := `examples.«TheoremProvingInLean4».DependentTypeTheory
