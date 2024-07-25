@@ -1,52 +1,59 @@
--- def <項の名前(識別子)> : <項の型> := <項の定義式>
-def m : Nat := 1           -- `m` は自然数型を持つ
-def b1 : Bool := true      -- `b1` はブール型を持つ
-def b2 : Bool := false
+def foo := let a := Nat; fun x : a => x + 2
+/-
+  -- この関数ではカッコの中が先に評価される。aの型がわからない状態で x: a => x + 2 は定義できない
+  def bar := (fun a => fun x : a => x + 2) Nat
+-/
 
--- #check <項>
-#check m                   -- output: Nat
-#check b1 && b2            -- `&&` は「かつ」 output: Bool
-#check b1 || b2            -- `||` は「または」 output: Bool
+def cons (α : Type) (a : α) (as : List α) : List α :=
+  List.cons a as
 
--- #eval <項>
-#eval 5 * 4                -- 20
-#eval m + 2                -- 3
-#eval b1 && b2             -- false
+#check cons Nat        -- Nat → List Nat → List Nat
+#check cons Bool       -- Bool → List Bool → List Bool
+#check cons            -- (α : Type) → α → List α → List α
 
-#check Nat → Nat                   -- `→` は "\to" あるいは "\r" と打つと入力できる
-#check Nat -> Nat                  -- `->` は `→` のASCII表記
+#check @List.cons    -- {α : Type u_1} → α → List α → List α
+#check @List.nil     -- {α : Type u_1} → List α
+#check @List.length  -- {α : Type u_1} → List α → Nat
+#check @List.append  -- {α : Type u_1} → List α → List α → List α
 
-#check Nat × Nat                   -- `×` は "\times" と打つと入力できる
-#check Prod Nat Nat                -- `Prod Nat Nat` は `Nat × Nat` のASCII表記
+universe u v
 
-#check Nat → Nat → Nat
-#check Nat → (Nat → Nat)           -- これは1つ上と同じである。つまり、`→` は右結合的である
-#check Nat × Nat → Nat
-#check (Nat → Nat) → Nat           -- 関数を受け取る関数の型
+def f (α : Type u) (β : α → Type v) (a : α) (b : β a) : (a : α) × β a :=
+  ⟨a, b⟩
 
-#check Nat.succ                    -- Nat → Nat
-#check (0, 1)                      -- Nat × Nat
-#check Nat.add                     -- Nat → Nat → Nat
+def g (α : Type u) (β : α → Type v) (a : α) (b : β a) : Σ a : α, β a :=
+  Sigma.mk a b
 
-#check Nat.succ 2                  -- Nat
-#check Nat.add 3                   -- Nat → Nat
-#check Nat.add 5 2                 -- Nat
-#check (5, 9).1                    -- Nat
-#check (5, 9).2                    -- Nat
+#print f
+#print g
 
-#eval Nat.succ 2                   -- 3
-#eval Nat.add 5 2                  -- 7
-#eval (5, 9).1                     -- 5
-#eval (5, 9).2                     -- 9
-#eval Nat.add (10, 7).1 (10, 7).2  -- 17
+def h1 (x : Nat) : Nat :=
+  (f Type (fun α => α) Nat x).2
 
-#check Nat               -- Type
-#check Bool              -- Type
-#check Nat → Bool        -- Type
-#check Nat × Bool        -- Type
-#check Nat → Nat         -- ...
-#check Nat × Nat → Nat
-#check Nat → Nat → Nat
-#check Nat → (Nat → Nat)
-#check Nat → Nat → Bool
-#check (Nat → Nat) → Nat
+#eval h1 5 -- 5
+
+def h2 (x : Nat) : Nat :=
+  (g Type (fun α => α) Nat x).2
+
+#eval h2 5 -- 5
+
+def i : Type :=                 -- iは ``Nat`` 型のこと
+  (f Type (fun α => α) Nat 5).1
+
+def test : i := 5 + 5
+
+#eval test -- 10
+
+def ident {α : Type u} (x : α) := x
+
+#check ident         -- ?m → ?m
+#check ident 1       -- Nat
+#check ident "hello" -- String
+#check @ident        -- {α : Type u_1} → α → α
+
+#check @id        -- {α : Sort u_1} → α → α
+#check @id Nat    -- Nat → Nat
+#check @id Bool   -- Bool → Bool
+
+#check @id Nat 1     -- Nat
+#check @id Bool true -- Bool

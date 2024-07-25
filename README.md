@@ -50,3 +50,11 @@ vpn サーバーとファイルサーバーとメールサーバーも立てた�
 internal/notebook のような汎用性高すぎるコードを pkg に移して実装を書き足すとかできるかなぁと思う
 
 [日本語解説](https://lean-ja.github.io/lean-by-example/)
+
+[数学の問題集](https://artofproblemsolving.com/wiki/index.php/AMC_12_Problems_and_Solutions)の証明を Lean で書いてみたい
+
+github だと iframe で jupyter の結果表示している
+
+ローディング画面とかほしいので作って、iframe で表示するように elysia と nbviewer を改良する
+
+lean 4 第二章の練習問題をやる
