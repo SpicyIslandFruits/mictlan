@@ -1,7 +1,6 @@
 {
   "name": "mictlan",
   "type": "module",
-  "module": "mictlan",
   "scripts": {
     "build": "bun build --compile --minify --sourcemap cmd/nbviewer/main.ts --outfile out/nbviewer",
     "dev": "bun run cmd/nbviewer/main.ts",
