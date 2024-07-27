@@ -1,5 +1,5 @@
 # ビルダーステージ: Bun を使用してアプリケーションをビルド
-FROM oven/bun:1 as builder
+FROM oven/bun:1 AS builder
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ COPY . .
 RUN bun run build
 
 # ランナーステージ: Jupyter 環境でアプリケーションを実行
-FROM python:latest as runner
+FROM python:latest AS runner
 
 WORKDIR /app
 
