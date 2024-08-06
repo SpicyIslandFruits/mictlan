@@ -47,8 +47,6 @@ vpn サーバーとファイルサーバーとメールサーバーも立てた�
 
 前作った php の認証を移植すれば機械学習系を外部から操作するエンドポイント作れる
 
-internal/notebook のような汎用性高すぎるコードを pkg に移して実装を書き足すとかできるかなぁと思う
-
 [日本語解説](https://lean-ja.github.io/lean-by-example/)
 
 [数学の問題集](https://artofproblemsolving.com/wiki/index.php/AMC_12_Problems_and_Solutions)の証明を Lean で書いてみたい

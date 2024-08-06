@@ -6,7 +6,8 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 # .envファイルから環境変数を読み込む関数
 load_env() {
     if [ -f "$SCRIPT_DIR/.env" ]; then
-        export $(grep -v '^#' "$SCRIPT_DIR/.env" | xargs)
+        # コメントを完全に除去し、空行をスキップして環境変数をエクスポート
+        export $(sed 's/#.*$//' "$SCRIPT_DIR/.env" | grep -v '^\s*$' | xargs -d '\n')
     else
         echo "警告: .envファイルが見つかりません。"
     fi
@@ -95,19 +96,18 @@ case "$1" in
     go)
         install_go
         ;;
-    zrok)
-        reserve_share
-        ;;
     all)
         install_apt_packages
         install_vscode_extensions
         install_pip_packages
         install_bun
         install_go
+        ;;
+    zrok)
         reserve_share
         ;;
     *)
-        echo "使用方法: $0 {apt|vscode|pip|bun|go|zrok|all}"
+        echo "使用方法: $0 {apt|vscode|pip|bun|go|all|zrok}"
         exit 1
         ;;
 esac
