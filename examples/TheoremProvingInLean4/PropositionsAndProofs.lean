@@ -1,8 +1,17 @@
 variable (p q r : Prop)
 
 -- ∧ と ∨ の可換性
-example : p ∧ q ↔ q ∧ p := sorry
-example : p ∨ q ↔ q ∨ p := sorry
+example : p ∧ q ↔ q ∧ p :=
+  Iff.intro
+    (fun h : p ∧ q =>
+      And.intro h.right h.left)
+    (fun h: q ∧ p =>
+      And.intro h.right h.left)
+
+example : p ∨ q ↔ q ∨ p :=
+  Iff.intro
+    (fun h : p ∨ q => sorry)
+    (fun h : q ∨ p => sorry)
 
 -- ∧ と ∨ の結合性
 example : (p ∧ q) ∧ r ↔ p ∧ (q ∧ r) := sorry

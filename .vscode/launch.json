@@ -18,6 +18,7 @@
             "cwd": "${workspaceFolder}",
             "watchMode": true,
             "env": {
+                // これがないとjupyterが動かない
                 "PATH": "${env:PATH}:/home/john/.venv/bin"
             }
         }

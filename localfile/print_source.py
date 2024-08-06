@@ -2,7 +2,7 @@ import os
 from typing import List, Optional
 
 
-def print_source_files(directory: str, ext: str) -> Optional[List[str]]:
+def print_source(directory: str, ext: str) -> Optional[List[str]]:
     current_dir = os.getcwd()
     target_dir = os.path.join(current_dir, directory)
 

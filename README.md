@@ -58,3 +58,11 @@ github だと iframe で jupyter の結果表示している
 ローディング画面とかほしいので作って、iframe で表示するように elysia と nbviewer を改良する
 
 lean 4 第二章の練習問題をやる
+
+[キスキットのチュートリアル](https://youtu.be/0RPFWZj7Jm0?si=PM7WxTkXPc4rgVvw)やってみる
+
+自分のメールサーバーほしい、ドメイン借りて DKIM とか設定する
+
+TODO リストをかける昨日がほしい、php で作って、ログインは例の mysql でやる
+
+アイコンつけたい、AI に書いてもらおう

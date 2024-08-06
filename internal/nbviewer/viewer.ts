@@ -17,6 +17,7 @@ export class App<T> {
     this.presenter = presenter;
   }
 
+  // TODO: show progress
   async show(name: Name): Promise<T> {
     const notebook = await this.library.notebook(name);
     return this.presenter.render(notebook);

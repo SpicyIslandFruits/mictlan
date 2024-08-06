@@ -1,5 +1,5 @@
 import { test } from "bun:test";
-import { Presenter } from "./presenter";
+import { Presenter } from "./nbviewer";
 import { make } from "../pkg/types";
 import * as nbviewer from "../internal/nbviewer";
 
