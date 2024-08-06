@@ -18,6 +18,5 @@ ms-toolsai.jupyter-renderers
 ms-toolsai.vscode-jupyter-cell-tags
 ms-toolsai.vscode-jupyter-slideshow
 oven.bun-vscode
-simonsiefke.svg-preview
 tomoki1207.pdf
 vscodevim.vim
